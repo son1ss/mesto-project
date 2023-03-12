@@ -1,0 +1,25 @@
+.element__like-button {
+  grid-area: button;
+  width: 22px;
+  height: 19px;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: transparent;
+  border: none;
+  background-image: url(../../../images/icons/like.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  align-self: center;
+  justify-self: right;
+  margin-right: 20px;
+}
+
+.element__like-button:hover {
+  opacity: 0.5;
+  transition: 0.2s ease-in-out;
+}
+
+.element__like-button:active {
+  background-image: url(../../../images/icons/like-filled.svg);
+}

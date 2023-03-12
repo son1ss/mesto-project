@@ -1,0 +1,13 @@
+.element {
+  width: 282px;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(2, auto);
+  grid-template-areas:
+    "photo photo"
+    "title button";
+  background-color: #fff;
+  justify-items: space-between;
+  color: #000;
+}
