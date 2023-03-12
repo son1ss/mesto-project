@@ -3,7 +3,7 @@
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(2, auto);
-  grid-template-rows: repeat(2, auto);
+  grid-template-rows: 282px 79px;
   grid-template-areas:
     "photo photo"
     "title button";

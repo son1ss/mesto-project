@@ -5,3 +5,10 @@
   max-width: 918px;
   box-sizing: border-box;
 }
+
+@media screen and (max-width: 768px) {
+  .footer {
+    padding-top: 10px;
+    padding-bottom: 36px;
+  }
+}

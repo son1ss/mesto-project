@@ -1,6 +1,7 @@
 .element__title {
   grid-area: title;
-  padding: 25px 20px 30px 25px;
+  padding: 0 25px 0 20px;
+  align-self: center;
   margin: 0;
   font-style: normal;
   font-weight: 900;

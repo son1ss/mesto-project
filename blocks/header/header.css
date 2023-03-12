@@ -1,7 +1,12 @@
 .header {
-  max-width: 918px;
+  max-width: 880px;
   box-sizing: border-box;
   width: 100%;
-  padding-left: 27px;
   border-bottom: 1px solid #545454B3;
+}
+
+@media screen and (max-width: 768px) {
+  .header{
+    padding-left: 27px;
+  }
 }
