@@ -1,5 +1,6 @@
 .popup__submit {
   border: none;
+  border-radius: 2px;
   padding: 14px 0 18px;
   background-color: #000;
   font-family: 'Inter';
@@ -10,6 +11,11 @@
   text-align: center;
   color: #ffffff;
   cursor: pointer;
+}
+
+.popup__submit:hover {
+  opacity: 0.8;
+  transition: 0.2s ease-in-out;
 }
 
 @media screen and (max-width: 768px) {

@@ -16,43 +16,46 @@
       <div class="profile__inner">
         <img src="./images/profile-pic.jpg" alt="Картинка профиля" class="profile__picture">
         <div class="profile__info">
-          <h1 class="profile__name">Жак-Ив Кусто<button class="profile__edit-button"></button></h1>
+          <div class="profile__name-container">
+            <h1 class="profile__name">Жак-Ив Кусто</h1>
+            <button type="button" class="profile__edit-button" aria-label="Редактировать"></button>
+          </div>
           <p class="profile__description">Исследователь океана</p>
         </div>
       </div>
-      <button class="profile__add-button"></button>
+      <button type="button" class="profile__add-button" aria-label="Добавить"></button>
     </section>
     <section class="elements">
       <ul class="elements__list">
         <li class="element">
           <img src="./images/karachaevsk.jpg" alt="Карачаевск" class="element__photo">
           <h2 class="element__title">Карачаевск</h2>
-          <button class="element__like-button"></button>
+          <button type="button" class="element__like-button" aria-label="Лайк"></button>
         </li>
         <li class="element">
           <img src="./images/elbrus.jpg" alt="Эльбрус" class="element__photo">
           <h2 class="element__title">Гора Эльбрус</h2>
-          <button class="element__like-button"></button>
+          <button type="button" class="element__like-button" aria-label="Лайк"></button>
         </li>
         <li class="element">
           <img src="./images/dombay.jpg" alt="Домбай" class="element__photo">
           <h2 class="element__title">Домбай</h2>
-          <button class="element__like-button"></button>
+          <button type="button" class="element__like-button" aria-label="Лайк"></button>
         </li>
         <li class="element">
           <img src="./images/elbrus.jpg" alt="Эльбрус" class="element__photo">
           <h2 class="element__title">Гора Эльбрус</h2>
-          <button class="element__like-button"></button>
+          <button type="button" class="element__like-button" aria-label="Лайк"></button>
         </li>
         <li class="element">
           <img src="./images/dombay.jpg" alt="Домбай" class="element__photo">
           <h2 class="element__title">Домбай</h2>
-          <button class="element__like-button"></button>
+          <button type="button" class="element__like-button" aria-label="Лайк"></button>
         </li>
         <li class="element">
           <img src="./images/karachaevsk.jpg" alt="Карачаевск" class="element__photo">
           <h2 class="element__title">Карачаево-Черкессия</h2>
-          <button class="element__like-button"></button>
+          <button type="button" class="element__like-button" aria-label="Лайк"></button>
         </li>
       </ul>
     </section>
@@ -62,13 +65,13 @@
   </footer>
   <div class="popup">
     <div class="popup__container">
-      <button class="popup__close-button"></button>
+      <button type="button" class="popup__close-button" aria-label="Закрыть"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
-      <div class="popup__forms">
-        <input type="text" name="profile-name" id="profile-name" class="popup__input-form" value="Жак-Ив Кусто">
-        <input type="text" name="profile-description" id="profile-description" class="popup__input-form" value="Исследователь океана">
-      </div>
-      <input type="submit" value="Сохранить" class="popup__submit">
+      <form class="popup__forms">
+        <input type="text" placeholder="Имя" name="profile-name" id="profile-name" class="popup__input popup__input_type_name" value="Жак-Ив Кусто">
+        <input type="text" placeholder="Описание" name="profile-description" id="profile-description" class="popup__input popup__input_type_desctiprion" value="Исследователь океана">
+      </form>
+      <button type="submit" class="popup__submit">Сохранить</button>
     </div>
   </div>
 </body>

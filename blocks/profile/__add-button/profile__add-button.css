@@ -5,6 +5,7 @@
   box-sizing: border-box;
   background-color: transparent;
   border: 1px solid #ffffff;
+  border-radius: 2px;
   background-image: url(../../../images/icons/add.svg);
   background-size: 22px;
   background-repeat: no-repeat;
@@ -19,7 +20,6 @@
 
 @media screen and (max-width: 768px) {
   .profile__add-button {
-    height: 50px;
     width: 100%;
     background-size: 16px;
   }
