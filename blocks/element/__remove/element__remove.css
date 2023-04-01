@@ -1,0 +1,17 @@
+.element__remove {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  z-index: 1;
+  background: none;
+  border: none;
+  background-image: url('../../../images/icons/trash.svg');
+  width: 18px;
+  height: 19px;
+  cursor: pointer;
+  transition: opacity .3s ease;
+}
+
+.element__remove:hover {
+  opacity: 0.6;
+}
