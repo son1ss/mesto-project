@@ -85,14 +85,14 @@ initialCards.forEach(item => {
 
 editButton.addEventListener('click', () => {
   openPopup(profilePopup);
+  nameInput.value = profileName.textContent;
+  descInput.value = profileDesc.textContent;
 })
 
 profileForm.addEventListener('submit', evt => {
   evt.preventDefault();
-  const name = nameInput.value;
-  const description = descInput.value;
-  profileName.textContent = name;
-  profileDesc.textContent = description;
+  profileName.textContent = nameInput.value;
+  profileDesc.textContent = descInput.value;
   closePopup(profilePopup);
 })
 
@@ -102,13 +102,16 @@ addButton.addEventListener('click', () => {
 
 pictureForm.addEventListener('submit', evt => {
   evt.preventDefault();
-  const cardObject = {
+  const inputs = {
     name: picNameInput.value,
     link: picLinkInput.value
   }
 
-  renderCard(generateCard(cardObject));
+  renderCard(generateCard(inputs));
 
+  picNameInput.value = '';
+  picLinkInput.value = '';
+  
   closePopup(picturePopup);
 })
 
