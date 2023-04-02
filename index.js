@@ -76,9 +76,6 @@ const renderCard = cardElement => {
   cardContainer.prepend(cardElement)
 }
 
-nameInput.value = profileName.textContent;
-descInput.value = profileDesc.textContent;
-
 initialCards.forEach(item => {
   renderCard(generateCard(item));
 })
@@ -111,7 +108,7 @@ pictureForm.addEventListener('submit', evt => {
 
   picNameInput.value = '';
   picLinkInput.value = '';
-  
+
   closePopup(picturePopup);
 })
 
