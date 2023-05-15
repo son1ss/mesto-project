@@ -11,12 +11,20 @@
   text-align: center;
   color: #ffffff;
   cursor: pointer;
-  margin-top: 18px;
 }
 
 .popup__submit:hover {
   opacity: 0.8;
   transition: 0.2s ease-in-out;
+}
+
+.popup__submit:disabled {
+  background-color: #fff;
+  color: #000000;
+  border: 1px solid #000000;
+  border-radius: 2px;
+  opacity: 0.2;
+  cursor: default;
 }
 
 @media screen and (max-width: 768px) {
