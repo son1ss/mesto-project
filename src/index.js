@@ -12,7 +12,7 @@ import { initialCards,
         profileDesc,
         picturePopup,
         pictureForm } from './components/utils'
-import { enableValidation, toggleButtonState } from './components/validate';
+import { enableValidation } from './components/validate';
 
 initialCards.forEach(item => {
   renderCard(generateCard(item), '.elements__list');
