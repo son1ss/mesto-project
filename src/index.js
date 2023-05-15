@@ -12,7 +12,7 @@ import { initialCards,
         profileDesc,
         picturePopup,
         pictureForm } from './components/utils'
-import { enableValidation } from './components/validate';
+import { enableValidation, toggleButtonState } from './components/validate';
 
 initialCards.forEach(item => {
   renderCard(generateCard(item));
@@ -22,10 +22,12 @@ editButton.addEventListener('click', () => {
   openPopup(profilePopup);
   profileForm.elements.name.value = profileName.textContent;
   profileForm.elements.description.value = profileDesc.textContent;
+  toggleButtonState(Array.from(profileForm.elements), profilePopup.querySelector('.popup__submit'))
 })
 
 addButton.addEventListener('click', () => {
   openPopup(picturePopup);
+  toggleButtonState(Array.from(pictureForm.elements), picturePopup.querySelector('.popup__submit'))
 })
 
 profileForm.addEventListener('submit', evt => {

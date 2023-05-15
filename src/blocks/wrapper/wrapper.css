@@ -6,10 +6,12 @@
   box-sizing: border-box;
   padding: 0 19px;
   width: 100%;
+  min-height: calc(100vh - 120.39px - 189px);
 }
 
 @media screen and (max-width: 768px) {
   .wrapper {
     gap: 36px;
+    min-height: calc(100vh - 85.48px - 63px - 80px);
   }
 }
