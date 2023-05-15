@@ -14,6 +14,8 @@ module.exports = {
   },
   mode: 'development',
   devServer: {
+    hot: false,
+    liveReload: true,
     static: path.resolve(__dirname, './dist'),
     open: true,
     compress: true,
