@@ -15,7 +15,7 @@ import { initialCards,
 import { enableValidation } from './components/validate';
 
 initialCards.forEach(item => {
-  renderCard(generateCard(item), '.elements__list');
+  renderCard(generateCard(item));
 })
 
 editButton.addEventListener('click', () => {
@@ -42,7 +42,7 @@ pictureForm.addEventListener('submit', evt => {
     link: pictureForm.elements.link.value
   }
 
-  renderCard(generateCard(inputs), '.elements__list')
+  renderCard(generateCard(inputs))
 
   pictureForm.reset()
 
