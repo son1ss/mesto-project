@@ -14,13 +14,16 @@
     <main class="wrapper">
       <section class="profile" aria-label="Профиль">
         <div class="profile__inner">
-          <img src="<%= require('./images/profile-pic.jpg') %>" alt="Картинка профиля" class="profile__picture">
+          <div class="profile__picture-container">
+            <button type="button" class="profile__picture-edit" aria-label="Поменять аватар"></button>
+            <img src="<%= require('./images/profile-pic.jpg') %>" alt="Картинка профиля" class="profile__picture">
+          </div>
           <div class="profile__info">
             <div class="profile__name-container">
-              <h1 class="profile__name">Жак-Ив Кусто</h1>
+              <h1 class="profile__name">Имя</h1>
               <button type="button" class="profile__edit-button" aria-label="Редактировать"></button>
             </div>
-            <p class="profile__description">Исследователь океана</p>
+            <p class="profile__description">Описание</p>
           </div>
         </div>
         <button type="button" class="profile__add-button" aria-label="Добавить"></button>
@@ -80,7 +83,10 @@
       <button type="button" class="element__remove" aria-label="Удалить"></button>
       <img src="" alt="" class="element__photo">
       <h2 class="element__title"></h2>
-      <button type="button" class="element__like-button" aria-label="Лайк"></button>
+      <div class="element__like-container">
+        <button type="button" class="element__like-button" aria-label="Лайк"></button>
+        <span class="element__likes"></span>
+      </div>
     </li>
   </template>
 </body>

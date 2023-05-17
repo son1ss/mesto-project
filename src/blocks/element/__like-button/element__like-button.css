@@ -1,5 +1,4 @@
 .element__like-button {
-  grid-area: button;
   width: 22px;
   height: 19px;
   padding: 0;
@@ -10,9 +9,6 @@
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
-  align-self: center;
-  justify-self: right;
-  margin-right: 20px;
 }
 
 .element__like-button:hover {

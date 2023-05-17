@@ -1,9 +1,8 @@
 import './pages/index.css';
 
 import { openPopup, closePopup } from './components/modal'
-import { renderCard, generateCard } from './components/card'
-import { initialCards,
-        addButton,
+import { renderCard, renderInitialCard, generateCard } from './components/card'
+import { addButton,
         editButton,
         profilePopup,
         profileForm,
@@ -13,9 +12,15 @@ import { initialCards,
         picturePopup,
         pictureForm } from './components/utils'
 import { enableValidation, toggleButtonState } from './components/validate';
+import * as api from './components/api'
 
-initialCards.forEach(item => {
-  renderCard(generateCard(item));
+api.getCards().then(cards => {
+  cards.forEach(card => {renderInitialCard(generateCard(card))})
+})
+
+api.getUser().then(user => {
+  profileName.textContent = user.name
+  profileDesc.textContent = user.about
 })
 
 editButton.addEventListener('click', () => {
@@ -32,9 +37,15 @@ addButton.addEventListener('click', () => {
 
 profileForm.addEventListener('submit', evt => {
   evt.preventDefault();
-  profileName.textContent = profileForm.elements.name.value
-  profileDesc.textContent = profileForm.elements.description.value
-  closePopup(profilePopup);
+  api.editUser({
+    name: profileForm.elements.name.value,
+    about: profileForm.elements.description.value
+  }).then(user => {
+    profileName.textContent = user.name
+    profileDesc.textContent = user.about
+  }).finally(() => {
+    closePopup(profilePopup);
+  })
 })
 
 pictureForm.addEventListener('submit', evt => {
@@ -44,11 +55,13 @@ pictureForm.addEventListener('submit', evt => {
     link: pictureForm.elements.link.value
   }
 
-  renderCard(generateCard(inputs))
+  api.addCard(inputs)
+  .then(card => {renderCard(generateCard(card))})
+  .finally(() => {
+    pictureForm.reset()
+    closePopup(picturePopup)
+  })
 
-  pictureForm.reset()
-
-  closePopup(picturePopup)
 })
 
 popupCloseButtons.forEach(item => {

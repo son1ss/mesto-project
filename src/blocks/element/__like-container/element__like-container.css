@@ -1,0 +1,11 @@
+.element__like-container {
+  grid-area: button;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  align-self: center;
+  justify-self: right;
+  margin-right: 20px;
+  gap: 3px
+}
