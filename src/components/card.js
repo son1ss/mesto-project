@@ -2,7 +2,7 @@ import { imagePopupHandler } from './modal'
 import { cardContainer } from './utils'
 import * as api from './api'
 
-export const generateCard = cardObject => {
+export const generateCard = (cardObject, id = cardObject.owner._id) => {
   const cardTemplate = document.querySelector('.photo-element').content;
   const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
   const cardImage = cardElement.querySelector('.element__photo');
@@ -14,23 +14,21 @@ export const generateCard = cardObject => {
   cardImage.alt = cardObject.name;
   cardElement.querySelector('.element__title').textContent = cardObject.name;
 
-  api.getUser().then(user => {
-    if (cardObject.owner._id === user._id) {
-      removeButton.addEventListener('click', () => {
-        api.removeCard(cardObject._id).then(() => {
-          cardElement.closest('.element').remove();
-        }).catch(err => {console.log(err)})
-      })
-    } else removeButton.remove()
+  if (cardObject.owner._id === id) {
+    removeButton.addEventListener('click', () => {
+      api.removeCard(cardObject._id).then(() => {
+        cardElement.closest('.element').remove();
+      }).catch(err => {console.log(err)})
+    })
+  } else removeButton.remove()
 
-    const likes = cardObject.likes.map(user => user._id)
+  const likes = cardObject.likes.map(user => user._id)
 
-    likesCount.textContent = likes.length;
+  likesCount.textContent = likes.length;
 
-    if (likes.includes(user._id)) {
-      likeButton.classList.add('element__like-button_active')
-    }
-  }).catch(err => {console.log(err)})
+  if (likes.includes(id)) {
+    likeButton.classList.add('element__like-button_active')
+  }
 
   likeButton.addEventListener('click', () => {
     if (likeButton.classList.contains('element__like-button_active')) {

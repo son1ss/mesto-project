@@ -1,7 +1,7 @@
-import './pages/index.css';
+import './index.css';
 
-import { openPopup, closePopup } from './components/modal'
-import { renderCard, renderInitialCard, generateCard } from './components/card'
+import { openPopup, closePopup } from '../components/modal'
+import { renderCard, renderInitialCard, generateCard } from '../components/card'
 import { addButton,
         editButton,
         profilePopup,
@@ -15,15 +15,15 @@ import { addButton,
         avatarPopup,
         avatarForm,
         avatar,
-        setLoadingState } from './components/utils'
-import { enableValidation, toggleButtonState } from './components/validate';
-import * as api from './components/api'
+        setLoadingState } from '../components/utils'
+import { enableValidation, toggleButtonState } from '../components/validate';
+import * as api from '../components/api'
 
-api.getCards().then(cards => {
-  cards.forEach(card => {renderInitialCard(generateCard(card))})
-}).catch(err => {console.log(err)})
-
-api.getUser().then(user => {
+Promise.all([
+  api.getCards(),
+  api.getUser()
+]).then(([cards, user]) => {
+  cards.forEach(card => {renderInitialCard(generateCard(card, user._id))})
   profileName.textContent = user.name
   profileDesc.textContent = user.about
   avatar.src = user.avatar
@@ -50,9 +50,9 @@ profileForm.addEventListener('submit', evt => {
   }).then(user => {
     profileName.textContent = user.name
     profileDesc.textContent = user.about
+    closePopup(profilePopup)
   }).catch(err => {console.log(err)})
   .finally(() => {
-    closePopup(profilePopup);
     submit.textContent = 'Сохранить'
   })
 })
@@ -66,11 +66,13 @@ pictureForm.addEventListener('submit', evt => {
   const submit = setLoadingState(pictureForm);
 
   api.addCard(inputs)
-  .then(card => {renderCard(generateCard(card))})
+  .then(card => {
+    renderCard(generateCard(card))
+    closePopup(picturePopup)
+  })
   .catch(err => {console.log(err)})
   .finally(() => {
     pictureForm.reset()
-    closePopup(picturePopup)
     submit.textContent = 'Создать'
   })
 
@@ -85,10 +87,12 @@ avatarForm.addEventListener('submit', e => {
   const submit = setLoadingState(avatarForm);
 
   api.editAvatar(avatarForm.elements.link.value)
-  .then(user => avatar.src = user.avatar)
+  .then(user => {
+    avatar.src = user.avatar
+    closePopup(avatarPopup)
+  })
   .catch(err => {console.log(err)})
   .finally(() => {
-    closePopup(avatarPopup);
     avatarForm.reset()
     submit.textContent = 'Сохранить'
   })
