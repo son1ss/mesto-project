@@ -69,10 +69,10 @@ fetch(`${config.baseUrl}/cards/likes/${id}`, {
 })
 
 export const editAvatar = (avatar) =>
-fetch(`${config.baseUrl}/me/avatar`, {
+fetch(`${config.baseUrl}/users/me/avatar`, {
   method: 'PATCH',
   headers: config.headers,
-  body: JSON.stringify(avatar)
+  body: JSON.stringify({avatar: avatar})
 }).then(user => {
   if (user.ok) return user.json()
   return Promise.reject(`Ошибка ${user.status}`)

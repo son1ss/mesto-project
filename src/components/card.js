@@ -19,7 +19,7 @@ export const generateCard = cardObject => {
       removeButton.addEventListener('click', () => {
         api.removeCard(cardObject._id).then(() => {
           cardElement.closest('.element').remove();
-        })
+        }).catch(err => {console.log(err)})
       })
     } else removeButton.remove()
 
@@ -30,19 +30,19 @@ export const generateCard = cardObject => {
     if (likes.includes(user._id)) {
       likeButton.classList.add('element__like-button_active')
     }
-  })
+  }).catch(err => {console.log(err)})
 
   likeButton.addEventListener('click', () => {
     if (likeButton.classList.contains('element__like-button_active')) {
       api.removeLike(cardObject._id).then(() => {
         likeButton.classList.remove('element__like-button_active')
         likesCount.textContent--
-      })
+      }).catch(err => {console.log(err)})
     } else {
       api.addLike(cardObject._id).then(() => {
         likeButton.classList.add('element__like-button_active')
         likesCount.textContent++
-      })
+      }).catch(err => {console.log(err)})
     }
   });
 

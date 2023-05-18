@@ -11,3 +11,11 @@ export const imagePopup = document.querySelector('.popup_type_show-picture');
 export const imgLink = imagePopup.querySelector('.popup__image');
 export const imgCaption = imagePopup.querySelector('.popup__caption');
 export const cardContainer = document.querySelector('.elements__list');
+export const avatar = document.querySelector('.profile__picture');
+export const avatarButton = document.querySelector('.profile__picture-edit');
+export const avatarPopup = document.querySelector('.popup_type_edit-avatar');
+export const avatarForm = avatarPopup.querySelector('.popup__forms');
+export const setLoadingState = form => {
+  form.querySelector('.popup__submit').textContent = 'Сохранение...'
+  return form.querySelector('.popup__submit')
+}
