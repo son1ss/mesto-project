@@ -5,6 +5,11 @@
 * Figma
 * HTML
 * CSS
+* Webpack
+* PostCSS
+* JS
+* Promise
+* Fetch API
 
 **Описание**
 
